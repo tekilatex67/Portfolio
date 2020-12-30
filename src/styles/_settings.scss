@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "font-1";
+    src: url(../assets/fonts/Memba-Light.otf);
+}
+
+@font-face {
+    font-family: "font-2";
+    src: url(../assets/fonts/Unisono-Quickpath.otf);
+}
+
+@font-face {
+    font-family: "font-3";
+    src: url(../assets/fonts/Alegra-Regular.otf);
+}
+
+@font-face {
+    font-family: "font-4";
+    src: url(../assets/fonts/cramaten.ttf);
+}
+
+@font-face {
+    font-family: "font-special";
+    src: url(../assets/fonts/amax.ttf);
+}
+
+@font-face {
+    font-family: "font-brand";
+    src: url(../assets/fonts/Stuff-Font.ttf);
+}
+
+@font-face {
+    font-family: "font-manuscrite";
+    src: url(../assets/fonts/LovtonyScript.ttf);
+}
+
+$font-poiret:'Poiret One',
+cursive;
+$font-megrim:'megrim',
+cursive;
+$font-1: "font-1",
+sans-serif;
+$font-2: "font-2",
+serif;
+$font-3: "font-3",
+sans-serif;
+$font-4: "font-4",
+serif;
+$font-5: "font-5",
+sans-serif;
+$font-special: "font-special",
+sans-serif;
+$font-brand: "font-brand",
+serif;
+$font-manuscrite: "font-manuscrite",
+cursive;
+$color-1:#66fad3;
+$color-2:#d49417;
+$color-3:#ffffffde;
+$color-4:#ffffff99;
+$color-5:rgba(255, 255, 255, 0.38);
+$black: rgb(16, 16, 16);
+$color-6: #87e7e1;
+$color-blue3: #1bcfc4;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: $font-1;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: $black;
+    min-height: 100vh;
+    color: $color-3;
+}
+
+.home,
+.about,
+.skills,
+.works,
+.contact {
+    padding: 2% 5%;
+}
+
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: left;
+    font-family: $font-2;
+    font-size: 2rem;
+    color: $color-3;
+}
+
+.container {
+    margin-left: 10vw;
+}
+
+a,
+a:visited {
+    color: $color-1;
+}

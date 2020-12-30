@@ -1,0 +1,26 @@
+.home {
+    height: 100vh;
+    .container {
+        width: 85%;
+        height: 90%;
+        h2 {
+            position: relative;
+            display: inline-block;
+            margin-left: 5%;
+            text-align: left;
+            font-family: $font-2;
+            font-size: 2rem;
+            color: $color-3;
+        }
+        .technos {
+            ul {
+                position: relative;
+                display: flex;
+                transform-style: preserve-3d;
+                transform: skew(5deg);
+                grid-column: 2/3;
+                grid-row: 1;
+            }
+        }
+    }
+}

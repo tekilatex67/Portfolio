@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState} from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Home from './pages/Home';
+import About from './pages/About';
+import Skills from './pages/Skills';
+import Works from './pages/Works';
+import Contact from './pages/Contact';
+import LanguageContext from './components/LanguageContext';
+
+
+
+const App = () => {
+    
+    const [language, setLanguage] = useState('Shakespeare');
+    const contextValue = {
+        language,
+        updateLanguage : setLanguage
+    }
+    
+    return (
+        <LanguageContext.Provider value={contextValue}>
+        <Switch>
+            <Route path='/' exact component={Home}/>
+            <Route path='/about' exact component={About}/>
+            <Route path='/skills' exact component={Skills}/>
+            <Route path='/works' exact component={Works}/>
+            <Route path='/contact' exact component={Contact}/>
+        </Switch>
+        </LanguageContext.Provider>
+    );
+};
 
 export default App;

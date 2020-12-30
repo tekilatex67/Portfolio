@@ -1,0 +1,112 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2% 3%;
+    width: 150px;
+    height: 100%;
+    .brand {
+        font-family: $font-2;
+        font-size: 2.5rem;
+        color: $color-1;
+    }
+    ul {
+        position: absolute;
+        top: 40%;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .nav-active li [data-letter] {
+            opacity: 1;
+        }
+        .nav-active {
+            color: $color-2;
+            &::before {
+                display: none;
+            }
+            li {
+                &::before {
+                    content: '{ ';
+                    position: absolute;
+                    top: 0;
+                    left: -15px;
+                    height: 100%;
+                    background-color: transparent;
+                }
+                &::after {
+                    content: ' }';
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    right: -15px;
+                }
+            }
+        }
+        a {
+            position: relative;
+            &:hover {
+                &::before {
+                    transform: translateX(-150%);
+                    width: 5px;
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 10px;
+                height: 1px;
+                background: $color-1;
+                opacity: 1;
+                transition: all .3s;
+            }
+            li {
+                position: relative;
+                display: inline-block;
+                font-family: $font-5;
+                [data-letter] {
+                    margin: 1px;
+                }
+                [data-letter="1"] {
+                    opacity: 0;
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1) .05s;
+                }
+                [data-letter="2"] {
+                    opacity: 0;
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1) .1s;
+                }
+                [data-letter="3"] {
+                    opacity: 0;
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1) .15s;
+                }
+                [data-letter="4"] {
+                    opacity: 0;
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1) .2s;
+                }
+                [data-letter="5"] {
+                    opacity: 0;
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1) .25s;
+                }
+                &:hover {
+                    transition: all .6s cubic-bezier(.19, 1, .22, 1);
+                    [data-letter] {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .location {
+        p:first-child {
+            color: $color-1;
+        }
+        p:nth-child(2) {
+            color: $color-3;
+        }
+    }
+}
