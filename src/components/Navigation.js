@@ -1,6 +1,6 @@
 import React, { useContext} from 'react';
 import { NavLink } from 'react-router-dom';
-import { navDatas} from '../data/navigation-d';
+import { navDatas} from '../data/languages-data';
 import LanguageContext from '../components/LanguageContext';
 
 
@@ -13,9 +13,11 @@ const Navigation = () => {
         <nav className="navigation">
             
             <NavLink to='/' exact  className="brand">NK</NavLink>
-
+            
+            <span className="handFont">&lt;nav&gt;</span>
+           
             <ul>
-
+                
                 {   
                     language.language === "Shakespeare" ? navDatas.menuEng.map( (data, i) =>{
                         return(
@@ -46,6 +48,8 @@ const Navigation = () => {
                 
             </ul> 
 
+            <span className="handFont">&lt;\nav&gt;</span>
+                
                 <div className="location">
                     <p>Strasbourg</p>
                     <p>France</p>

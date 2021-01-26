@@ -15,11 +15,11 @@
             justify-content: center;
             align-items: center;
             background: #333;
-            transition: .2s;
+            transition: all .5s;
         }
         &:hover span {
             z-index: 1000;
-            transition: .5s;
+            transition: all .5s;
             box-shadow: -1px 1px 1px rgba(0, 0, 0, .05);
         }
     }

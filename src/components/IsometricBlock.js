@@ -6,12 +6,10 @@ const IsometricBlock = props => {
 
     const handleMouseEnter = (e) => {
         setHoverState(true);
-        props.isoBlockHover(props.language)
     }
      
     const handleMouseLeave = () => {
         setHoverState(false);
-        props.isoBlockHover('')
     }
 
 

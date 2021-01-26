@@ -30,7 +30,7 @@
             }
             li {
                 &::before {
-                    content: '{ ';
+                    content: '<';
                     position: absolute;
                     top: 0;
                     left: -15px;
@@ -38,7 +38,7 @@
                     background-color: transparent;
                 }
                 &::after {
-                    content: ' }';
+                    content: '/>';
                     position: absolute;
                     top: 0;
                     height: 100%;

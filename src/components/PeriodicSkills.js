@@ -20,7 +20,7 @@ class PeriodicSkills extends Component {
             table:[],
             sphere:[]
         };
-        const container = document.getElementById('container');
+        const container = document.getElementById('periodic-container');
         const width = container.offsetWidth;
         const height = container.offsetHeight;
         init();
@@ -42,7 +42,6 @@ class PeriodicSkills extends Component {
             camera.position.z = 1500;
        
         //ELEMENTS
-        
         
             for( let i=0; i < table.length; i +=5 ) {
                 const element = document.createElement('div');
@@ -231,7 +230,7 @@ class PeriodicSkills extends Component {
     render () {
         
         return (
-            <div id="container">
+            <div id="periodic-container">
     	     
                 <div id="menu">
                     <div id="table"><DestrucBtn word={"TABLE"}/></div>

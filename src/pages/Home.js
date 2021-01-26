@@ -18,7 +18,7 @@ const Home = () => {
             <Navigation/>
             <ParametresBanner/>
             <div className="container ">                
-                    <h2>.Klipfel  Nicolas</h2>                                
+                <h2>.Klipfel  Nicolas</h2>                                
                 <PeriodicSkills />
                 
             </div> 

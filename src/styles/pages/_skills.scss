@@ -1,5 +1,4 @@
 .skills {
-    color: $color-1;
     height: 100vh;
     max-height: 100vh;
     position: relative;
@@ -14,7 +13,7 @@
                 transition: all .5s;
                 &:hover {
                     h3 {
-                        color: $color-1;
+                        opacity: .8;
                     }
                     span {
                         border-width: 1px;
@@ -73,13 +72,22 @@
                     .iso-block {
                         box-shadow: 8px 20px 12px #060606;
                     }
+                    h4 {
+                        color: $color-5;
+                    }
                     &:hover span {
                         border: 0px solid $color-1;
                     }
+                    &:hover h4 {
+                        color: $color-1;
+                    }
                 }
                 h3 {
-                    color: $color-5;
-                    transition: all .3s;
+                    font-family: $font-2;
+                    font-size: 1.3rem;
+                    color: $color-1;
+                    opacity: 0;
+                    transition: all 1s;
                     margin: 5%;
                 }
             }

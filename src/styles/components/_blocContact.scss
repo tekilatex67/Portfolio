@@ -1,0 +1,50 @@
+.BlocContact {
+    display: flex;
+    @media screen and (max-width: 1300px) {
+        width: 30%;
+        flex-direction: column-reverse;
+    }
+    .text {
+        width: 70%;
+        text-align: end;
+        padding-right: 5%;
+        margin-right: 5%;
+        border-right: 1px solid $color-2;
+        @media screen and (max-width: 1300px) {
+            border: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        h4 {
+            font-family: $font-bold;
+            font-size: 1.3rem;
+            margin-bottom: 3%;
+            color: $color-3;
+        }
+        p {
+            color: $color-4;
+            letter-spacing: .2rem;
+            transition: all .3s;
+            &:hover {
+                cursor: pointer;
+                color: $color-2;
+                letter-spacing: .1rem;
+            }
+            @media screen and (max-width: 1300px) {
+                letter-spacing: 0rem;
+                &:hover {
+                    letter-spacing: 0rem;
+                }
+            }
+        }
+    }
+    .icon {
+        display: flex;
+        align-items: center;
+        @media screen and (max-width: 1300px) {
+            width: 100%;
+            justify-content: flex-end;
+        }
+    }
+}
