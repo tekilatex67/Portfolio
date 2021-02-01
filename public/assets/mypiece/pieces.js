@@ -37,7 +37,7 @@
                 }, // every piece will be translated in the Y axis a random distance between -400px and 400px
                 translate: function() {
                     if (windowWidth > 1120) return {
-                        translateX: -140,
+                        translateX: 0,
                         translateY: -100
                     };
                     if (windowWidth > 720) return {
@@ -72,7 +72,7 @@
             },
             translate: function() {
                 if (windowWidth > 1120) return {
-                    translateX: 200,
+                    translateX: 0,
                     translateY: 200
                 };
                 if (windowWidth > 720) return {
@@ -91,7 +91,7 @@
             backgroundColor: 'transparent',
             backgroundRadius: 0,
             fontSize: function() {
-                return windowWidth > 720 ? 100 : 50;
+                return windowWidth > 720 ? 150 : 100;
             },
             padding: function() {
                 return windowWidth > 720 ? '18 35 10 38' : '18 25 10 28';
@@ -108,7 +108,7 @@
             },
             translate: function() {
                 if (windowWidth > 1120) return {
-                    translateX: -540,
+                    translateX: 300,
                     translateY: -380
                 };
                 if (windowWidth > 720) return {
@@ -191,20 +191,63 @@
             // Show current items: image, text and number
             showItems();
     }
-
         // Init Event Listeners
         function initEvents() {
-            // Select prev or next slide using buttons
-            document.querySelector('.pieces-slider__button--prev').addEventListener('click', prevItem);
-            document.querySelector('.pieces-slider__button--next').addEventListener('click', nextItem);
+            
+            // Handle class active li
+            function handleActiveClass(){
+                
+                document.querySelector('.active').classList.remove('active')
+                document.querySelectorAll('[data-index]').forEach(li =>{
+                   if(li.dataset.index == currentIndex){
+                       li.classList.add('active');
+                   }
+                })
+            }
 
+            // Select prev or next using scroll
+            function wheelEvent(){           
+                function handleWheel(e){ 
+                        if(e.deltaY < 0){           
+                            prevItem();  
+                            window.removeEventListener('wheel', handleWheel);
+                            setTimeout(() => { //Slow scroll
+                                window.addEventListener('wheel', handleWheel);
+                            }, 500)
+                        }
+                        if(e.deltaY > 0){  
+                                nextItem();
+                                window.removeEventListener('wheel', handleWheel); 
+                                setTimeout(() => { //Slow scroll
+                                    window.addEventListener('wheel', handleWheel);
+                                }, 500)
+                        }
+                        handleActiveClass()
+                    }          
+                window.addEventListener('wheel', handleWheel);                
+            }
+            wheelEvent()
+
+            // Select the Item
+            document.querySelectorAll('[data-index]').forEach(dataIndex =>{
+                dataIndex.addEventListener('click', function(e){
+                    selectItem(e.target);    
+                    if(e.target.classList.contains('active') || e.target.parentNode.classList.contains('active')){
+                        return 
+                    } else{
+                        handleActiveClass()
+                    }   
+                    
+                })
+            })
             // Select prev or next slide using arrow keys
             document.addEventListener('keydown', function (e) {
                 if (e.keyCode == 37) { // left
                     prevItem();
-                    
+                    handleActiveClass()                    
                 } else if (e.keyCode == 39) { // right
                     nextItem();
+                    handleActiveClass()
                 }
             });
 
@@ -287,7 +330,35 @@
             currentIndex = currentIndex < slidesLength - 1 ? currentIndex + 1 : 0;
             updateIndexes();
             showItems();            
+        }
+
+        function selectItem(eTarget) {
+            hideItems();
+            currentIndex = parseInt(eTarget.dataset.index)
             
+            switch (currentIndex) {
+                case 0:
+                    currentImageIndex = 0 ;
+                    currentTextIndex = 1;
+                    currentNumberIndex = 2;
+                    break;
+                case 1:
+                    currentImageIndex = 3;
+                    currentTextIndex = 4;
+                    currentNumberIndex = 5;
+                    break;
+                case 2:
+                    currentImageIndex = 6;
+                    currentTextIndex =  7;
+                    currentNumberIndex = 8;
+                    break;
+            
+                default:
+                    break;
+            }
+            
+            
+            showItems();
         }
 
         // Handle `resize` event

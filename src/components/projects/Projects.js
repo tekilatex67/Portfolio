@@ -5,6 +5,7 @@ import Project from "./Project";
 
 
 
+
 const Projects = () => {
     
     const { project1, project2, project3} = projects;
@@ -42,6 +43,40 @@ const Projects = () => {
                 
                 <button className="pieces-slider__button pieces-slider__button--prev">prev</button>
                 <button className="pieces-slider__button pieces-slider__button--next">next</button>
+
+                <div className="projects-list">
+
+                    
+                    <span className="handFont">&lt;ul class="projects-list"&gt;</span>
+                    <ul>
+                        <li data-index="0" className="active">
+                            li
+                            <span className="green">&nbsp;id</span>
+                            <span className="white">=</span>
+                            <span className="yellow">"Kingdom of Colchis"</span>
+
+                        </li>
+
+                        <li data-index="1">
+                            li
+                            <span className="green">&nbsp;id</span>
+                            <span className="white">=</span>
+                            <span className="yellow">"Sushi Bar"</span>
+
+                        </li>
+                        
+                        <li data-index="2">
+                            li
+                            <span className="green">&nbsp;id</span>
+                            <span className="white">=</span>
+                            <span className="yellow">"Bibliflix"</span>
+                        </li>   
+                    </ul>
+                    <span className="handFont">&lt;/ul&gt;</span> 
+
+                </div>
+                
+
             </div>          
         </main>
     )

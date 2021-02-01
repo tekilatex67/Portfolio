@@ -58,7 +58,7 @@
 
 .pieces-slider__button {
     position: absolute;
-    left: 0;
+    //left: 0;
     top: 40%;
     width: 50px;
     height: 50px;
@@ -70,9 +70,16 @@
     cursor: pointer;
 }
 
+// A suprimer BTN NEXT ET PREV
 .pieces-slider__button--next {
+    display: none;
     right: 0;
     left: auto;
+}
+
+.pieces-slider__button--prev {
+    display: none;
+    right: 10%;
 }
 
 
@@ -80,6 +87,71 @@
 
 .no-js .pieces-slider__button {
     display: none;
+}
+
+// projects-list
+.projects-list {
+    position: absolute;
+    height: 70%;
+    top: 10%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: start;
+    // LISTE PROJECTS <li>
+    ul {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        [data-index] {
+            transform: translatex(50px);
+            color: $color-1;
+            cursor: pointer;
+            letter-spacing: .2rem;
+            &::before {
+                content: '<';
+                color: $color-1;
+            }
+            &::after {
+                content: '>';
+                color: $color-1;
+            }
+            span {
+                display: none;
+            }
+        }
+        .active {
+            color: rgb(209, 36, 91);
+            span {
+                display: inline-block;
+            }
+            .green {
+                color: #8BFE87;
+            }
+            .white {
+                color: $color-3;
+            }
+            .yellow {
+                color: #F5FE79;
+            }
+            &::after,
+            &::before {
+                color: #ffff;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 80%;
+            top: 10%;
+            left: 0;
+            background: $color-5;
+            opacity: .5;
+        }
+    }
 }
 
 
