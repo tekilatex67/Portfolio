@@ -194,6 +194,11 @@
         // Init Event Listeners
         function initEvents() {
             
+            //Add the frist time class active
+            document.querySelectorAll('[data-index]').forEach(li =>{
+                if(li.dataset.index == currentIndex){
+                    li.classList.add('active');
+                }})
             // Handle class active li
             function handleActiveClass(){
                 
@@ -231,8 +236,17 @@
             // Select the Item
             document.querySelectorAll('[data-index]').forEach(dataIndex =>{
                 dataIndex.addEventListener('click', function(e){
-                    selectItem(e.target);    
-                    if(e.target.classList.contains('active') || e.target.parentNode.classList.contains('active')){
+                    if(!e.target.dataset.index){
+                        if(!e.target.parentNode.dataset.index){
+                            selectItem(e.target.parentNode.parentNode)
+                        }else{
+                            selectItem(e.target.parentNode)
+                        }
+                    }else{
+                        selectItem(e.target);
+                    }
+                        
+                    if(e.target.classList.contains('active') || e.target.parentNode.classList.contains('active') || e.target.parentNode.parentNode.classList.contains('active')){
                         return 
                     } else{
                         handleActiveClass()
